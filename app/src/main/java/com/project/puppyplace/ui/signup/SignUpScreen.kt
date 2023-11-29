@@ -119,7 +119,9 @@ fun SignUpCard(
             EmailTextField(viewModel = viewModel)
             PasswordTextField(viewModel = viewModel)
             AddressTextField(viewModel = viewModel)
-            Row {
+            Row(
+                modifier = Modifier.padding(horizontal = 6.dp)
+            ) {
                 Column(
                     modifier = Modifier.weight(1f)
                 ){
@@ -322,7 +324,7 @@ fun TelephoneTextField(viewModel: SignUpViewModel){
         isError = viewModel.telephoneError.isNotEmpty(),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp),
+            .padding(2.dp),
         maxLines = 1
     )
     Text(
@@ -348,7 +350,7 @@ fun CellphoneTextField(viewModel: SignUpViewModel){
         isError = viewModel.cellphoneError.isNotEmpty(),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp),
+            .padding(2.dp),
         maxLines = 1
     )
     Text(
@@ -404,7 +406,7 @@ fun SignUpButton(viewModel: SignUpViewModel, navController: NavController){
     ){
         Button(
             modifier = Modifier
-                .padding(8.dp)
+                .padding(bottom = 8.dp)
                 .align(Alignment.Center),
             onClick = { viewModel.onSignUpClick(navController = navController) }
         ) {
