@@ -32,6 +32,9 @@ class HomeViewModel @Inject constructor(
     private var _state = MutableStateFlow(HomeListState())
     val state: StateFlow<HomeListState> = _state.asStateFlow()
 
+    private var _dogInFavorite by mutableStateOf(false)
+    var dogInFavorite = _dogInFavorite
+
     var searchItem by mutableStateOf("")
 
     var isLoadig by mutableStateOf(false)
@@ -40,9 +43,15 @@ class HomeViewModel @Inject constructor(
         return dog.gender == "Male"
     }
 
-    fun onLikedClicked(dog: DogDto, isLiked: Boolean) {
+    fun onLikedClicked(dog: DogDto) {
         viewModelScope.launch {
             homeRepository.updateUser(userLoged!!, dog.id)
+            homeRepository.updateDog(dog.copy(isLiked = !dog.isLiked))
+        }
+    }
+    fun isInFavorite(dogId: Int): Boolean{
+        return userLoged!!.favoriteDogs.any{
+            it.dogId == dogId
         }
     }
 

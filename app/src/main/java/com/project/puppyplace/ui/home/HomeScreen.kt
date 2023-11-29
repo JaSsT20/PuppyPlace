@@ -107,6 +107,7 @@ fun HomeScreenContent(
         DogsList(dogsList = dogsList, navController = navController, viewModel = viewModel)
     }
 }
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeTopBar(viewModel: HomeViewModel, navController: NavController){
     val context = LocalContext.current
@@ -291,7 +292,7 @@ fun DogItem(
     navController: NavController,
     viewModel: HomeViewModel
 ){
-    var isLiked by remember { mutableStateOf(dog.isLiked) }
+
     Column(
         modifier = Modifier
             .size(250.dp)
@@ -347,16 +348,16 @@ fun DogItem(
                         modifier = Modifier.weight(1f)
                     ) {
                         IconButton(onClick = {
-                            isLiked = !isLiked
-                            viewModel.onLikedClicked(dog, isLiked)
+
+                            viewModel.onLikedClicked(dog)
                         }) {
                             Icon(
                                 imageVector =
-                                    if(isLiked) Icons.Filled.Favorite
+                                    if(dog.isLiked) Icons.Filled.Favorite
                                     else Icons.Filled.HeartBroken,
                                 contentDescription = "Like icon",
                                 tint =
-                                    if(isLiked) MaterialTheme.colorScheme.error
+                                    if(dog.isLiked) MaterialTheme.colorScheme.error
                                     else MaterialTheme.colorScheme.onSecondary,
                             )
                         }
