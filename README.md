@@ -16,6 +16,8 @@ The Puppy Place project was born as a proposed idea for the final project of the
 Throughout a period of approximately 3 weeks, we went through the entire software development process. This included system analysis and the identification of the entities involved, followed by the design of the screens that would guide our development efforts. Currently, we are still in the coding phase, continuously working on the project.
 ### Designgs made in Figma
 ![Figma screens design](https://i.ibb.co/W6Gt0jB/Screens.png)
+![nointernet_screen](https://github.com/JaSsT20/PuppyPlace/assets/112819454/aa1c07c7-2312-4aba-8376-bc35d32e71d7)
+
 
 To ensure the proper functioning of the app, we had to handle all the backend work. This involved creating a private API using the .NET framework, specifically with C#. We made sure to include all the necessary components to meet our requirements.
 
